@@ -73,7 +73,7 @@ Given a file to copy, and a location to copy it to, does a few things:
 
 ```r
 # install.packages(devtools)
-devtools::install_github("rmflight/waitcopy")
+devtools::install_github("MoseleyBioinformaticsLab/waitcopy")
 ```
 
 ## Example Usage

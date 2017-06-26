@@ -1,4 +1,4 @@
-[![Last-changedate](https://img.shields.io/badge/last%20change-2017--06--23-brightgreen.svg)](https://github.com/rmflight/waitcopy/commits/master) [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/waitcopy)](https://cran.r-project.org/package=waitcopy) [![Travis-CI Build Status](https://travis-ci.org/rmflight/waitcopy.svg?branch=master)](https://travis-ci.org/rmflight/waitcopy) [![Coverage Status](https://img.shields.io/codecov/c/github/rmflight/waitcopy/master.svg)](https://codecov.io/github/rmflight/waitcopy?branch=master) [![Licence](https://img.shields.io/github/license/mashape/apistatus.svg)](http://choosealicense.com/licenses/mit/) [![ORCiD](https://img.shields.io/badge/orcid-0000--0001--8141--7788-green.svg)](http://orcid.org/0000-0001-8141-7788)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2017--06--26-brightgreen.svg)](https://github.com/rmflight/waitcopy/commits/master) [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/waitcopy)](https://cran.r-project.org/package=waitcopy) [![Travis-CI Build Status](https://travis-ci.org/rmflight/waitcopy.svg?branch=master)](https://travis-ci.org/rmflight/waitcopy) [![Coverage Status](https://img.shields.io/codecov/c/github/rmflight/waitcopy/master.svg)](https://codecov.io/github/rmflight/waitcopy?branch=master) [![Licence](https://img.shields.io/github/license/mashape/apistatus.svg)](http://choosealicense.com/licenses/mit/) [![ORCiD](https://img.shields.io/badge/orcid-0000--0001--8141--7788-green.svg)](http://orcid.org/0000-0001-8141-7788)
 
 waitcopy
 ========
@@ -53,7 +53,7 @@ Installation
 
 ``` r
 # install.packages(devtools)
-devtools::install_github("rmflight/waitcopy")
+devtools::install_github("MoseleyBioinformaticsLab/waitcopy")
 ```
 
 Example Usage
@@ -110,13 +110,13 @@ end_time <- seconds(now_minus_today + 3600)
 beg_time
 ```
 
-    ## [1] "51025.6973536015S"
+    ## [1] "38423.8266129494S"
 
 ``` r
 end_time
 ```
 
-    ## [1] "54605.6973536015S"
+    ## [1] "42003.8266129494S"
 
 And now let's copy! This is in the **near** future, so we will set the `wait_check` parameter to a low value of only 10 seconds, normally this is set to 30 minutes (1800 seconds), assuming that it is in the far future when you want to copy the files.
 
@@ -125,9 +125,9 @@ wait_copy(file_list, temp_dir, json_meta = file.path(temp_dir, "all_meta.json"),
           start_time = beg_time, stop_time = end_time, wait_check = 10, pause_file = 0)
 ```
 
-    ## Not allowed to copy yet, waiting! .... 2017-06-23 14:10:06
+    ## Not allowed to copy yet, waiting! .... 2017-06-26 10:40:04
 
-    ## Not allowed to copy yet, waiting! .... 2017-06-23 14:10:16
+    ## Not allowed to copy yet, waiting! .... 2017-06-26 10:40:14
 
 Lets look at how many files were copied and the contents of the JSON metadata.
 
@@ -147,7 +147,7 @@ jsonlite::toJSON(meta_json, auto_unbox = TRUE, pretty = TRUE)
     ## [
     ##   {
     ##     "file": "file1.raw",
-    ##     "saved_path": "/tmp/RtmpHst0Eb/copyfiles-test-1671660e2d06/file1.raw",
+    ##     "saved_path": "/tmp/RtmpLUCiQD/copyfiles-test-133b05a3b4671/file1.raw",
     ##     "original_path": [
     ##       "/software/R_libs/R340_bioc35/waitcopy/extdata/set1/file1.raw",
     ##       "/software/R_libs/R340_bioc35/waitcopy/extdata/set1/file3.raw"
@@ -156,7 +156,7 @@ jsonlite::toJSON(meta_json, auto_unbox = TRUE, pretty = TRUE)
     ##   },
     ##   {
     ##     "file": "file2.raw",
-    ##     "saved_path": "/tmp/RtmpHst0Eb/copyfiles-test-1671660e2d06/file2.raw",
+    ##     "saved_path": "/tmp/RtmpLUCiQD/copyfiles-test-133b05a3b4671/file2.raw",
     ##     "original_path": "/software/R_libs/R340_bioc35/waitcopy/extdata/set1/file2.raw",
     ##     "md5": "dbd76b5cc6d105c8fe077c30887c1389"
     ##   }
